@@ -1,3 +1,3 @@
-module github-action
+module microservice
 
 go 1.15
