@@ -4,7 +4,12 @@ import (
 	"fmt"
 	"net/http"
 )
-
+func handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Hello World!\n")
+}
+func blah(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf( w,"YO dawg")
+}
 func NewServer(host string, port string) *http.Server {
 	addr := fmt.Sprintf("%s:%s", host, port)
 
@@ -15,7 +20,4 @@ func NewServer(host string, port string) *http.Server {
 		Addr:    addr,
 		Handler: mux,
 	}
-}
-func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello World!\n")
 }

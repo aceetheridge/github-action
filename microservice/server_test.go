@@ -22,7 +22,7 @@ func TestHandler(t *testing.T) {
 	}
 
 	res := httptest.NewRecorder()
-
+	blah(res, req)
 	handler(res, req)
 
 	if res.Code != http.StatusOK {
