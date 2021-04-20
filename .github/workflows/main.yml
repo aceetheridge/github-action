@@ -19,4 +19,4 @@ jobs:
 #     - name: Mod Init
 #       run: go mod init github-action
     - name: Test
-      run: go test microservice/server_test.go
+      run: go test ./microservice/
