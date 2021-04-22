@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lab12
+spec:
+  selector:
+    matchLabels:
+      run: lab12
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: lab12
+    spec:
+      containers:
+        - name: application
+          image: aceetheridge/helloserver
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
