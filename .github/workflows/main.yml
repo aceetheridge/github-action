@@ -20,3 +20,20 @@ jobs:
 #       run: go mod init github-action
     - name: Test
       run: go test ./microservice/
+  docker:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Login to DockerHub
+      uses: docker/login-action@v1 
+      with:
+        username: ${{ secrets.aceetheridge }}
+        password: ${{ secrets.Ace3318966+ }}
+    - name: Build and push
+      id: docker_build
+      uses: docker/build-push-action@v2
+      with:
+        push: true
+        tags: arunravindran/helloserver:latest
+    - name: Image digest
+      run: echo ${{ steps.docker_build.outputs.digest }}
